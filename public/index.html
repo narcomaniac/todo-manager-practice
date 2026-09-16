@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo Manager</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <p class="eyebrow">College Web Development Practice</p>
+        <h1>Todo Manager</h1>
+        <p class="lede">
+          A small REST-backed task list for creating, editing, completing, and
+          organizing coursework.
+        </p>
+      </header>
+
+      <section class="stats" aria-label="Task counters">
+        <article class="stat-card">
+          <span id="count-total" class="stat-value">0</span>
+          <span class="stat-label">Total</span>
+        </article>
+        <article class="stat-card">
+          <span id="count-active" class="stat-value">0</span>
+          <span class="stat-label">Active</span>
+        </article>
+        <article class="stat-card">
+          <span id="count-completed" class="stat-value">0</span>
+          <span class="stat-label">Completed</span>
+        </article>
+      </section>
+
+      <section class="toolbar" aria-label="Task controls">
+        <label class="search-field">
+          <span class="visually-hidden">Search by title</span>
+          <input
+            id="search-input"
+            type="search"
+            placeholder="Search by task title"
+            autocomplete="off"
+          />
+        </label>
+
+        <div class="filters" role="group" aria-label="Filter by status">
+          <button type="button" class="filter-btn is-active" data-filter="all">
+            All
+          </button>
+          <button type="button" class="filter-btn" data-filter="active">
+            Active
+          </button>
+          <button type="button" class="filter-btn" data-filter="completed">
+            Completed
+          </button>
+        </div>
+
+        <button type="button" id="add-task-btn" class="primary-btn">
+          Add task
+        </button>
+      </section>
+
+      <p id="app-error" class="banner error-banner" hidden></p>
+
+      <section id="task-list" class="task-list" aria-live="polite"></section>
+
+      <section id="empty-state" class="empty-state" hidden>
+        <h2>No tasks to show</h2>
+        <p>
+          Add a task to get started, or change the search and filter settings.
+        </p>
+      </section>
+    </div>
+
+    <dialog id="task-dialog" class="modal">
+      <form id="task-form" method="dialog" novalidate>
+        <h2 id="dialog-title">Add task</h2>
+        <p id="form-error" class="form-error" hidden></p>
+
+        <label>
+          Title
+          <input id="title-input" name="title" type="text" maxlength="120" required />
+        </label>
+
+        <label>
+          Description
+          <textarea
+            id="description-input"
+            name="description"
+            rows="4"
+            maxlength="500"
+            placeholder="Optional details"
+          ></textarea>
+        </label>
+
+        <div class="form-row">
+          <label>
+            Priority
+            <select id="priority-input" name="priority">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+            </select>
+          </label>
+
+          <label>
+            Status
+            <select id="status-input" name="status">
+              <option value="active" selected>Active</option>
+              <option value="completed">Completed</option>
+            </select>
+          </label>
+        </div>
+
+        <label>
+          Due date
+          <input id="due-date-input" name="due_date" type="date" />
+        </label>
+
+        <div class="dialog-actions">
+          <button type="button" id="cancel-form-btn" class="ghost-btn">
+            Cancel
+          </button>
+          <button type="submit" class="primary-btn">Save task</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="delete-dialog" class="modal">
+      <form method="dialog" id="delete-form">
+        <h2>Delete this task?</h2>
+        <p id="delete-message">This action cannot be undone.</p>
+        <div class="dialog-actions">
+          <button type="button" id="cancel-delete-btn" class="ghost-btn">
+            Cancel
+          </button>
+          <button type="submit" class="danger-btn">Delete</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
