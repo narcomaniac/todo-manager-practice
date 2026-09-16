@@ -1,0 +1,28 @@
+{
+  "name": "todo-manager-practice",
+  "version": "1.0.0",
+  "description": "Educational Todo Manager web application for college web-development practice",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test tests/api.test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "todo",
+    "express",
+    "sqlite",
+    "education"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^11.9.1",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "supertest": "^7.1.0"
+  }
+}
