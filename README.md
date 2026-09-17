@@ -4,6 +4,8 @@ A small educational Todo Manager web application built for a college web-develop
 
 The app is intentionally simple: a student can view, create, edit, complete, and delete tasks through a browser UI that talks to a REST API backed by SQLite.
 
+**Live deployment:** [https://todo-manager-practice-production.up.railway.app](https://todo-manager-practice-production.up.railway.app)
+
 ## Selected educational catalogue project
 
 This project follows the **Build a Todo List App in JavaScript** item from the Project Based Learning catalogue:
@@ -219,8 +221,8 @@ The runtime database file is ignored by git.
 
 ## Deployment
 
-This project is ready to deploy to any host that can run a Node.js process and keep a local SQLite file.
+Production URL:
 
-Final URL: `[DEPLOYMENT_URL_PLACEHOLDER]`
+**https://todo-manager-practice-production.up.railway.app**
 
-Deployment has not been configured yet for this assignment.
+The live app is deployed on Railway. The same Node.js process serves the frontend from `public/` and the REST API from `/api/tasks`. SQLite is initialized automatically on startup.
